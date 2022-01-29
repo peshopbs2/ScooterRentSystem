@@ -10,7 +10,6 @@ namespace ScooterRentSystem.DAL.Entities
     {
         public Person()
         {
-            City = new City();
             Rents = new HashSet<Rent>();
         }
         public string FirstName { get; set; }

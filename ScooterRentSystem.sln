@@ -3,13 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31112.23
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ScooterRentSystem", "ScooterRentSystem\ScooterRentSystem.csproj", "{40019F48-D272-4999-AF2E-2F9E5A5B91F4}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ScooterRentSystem.DAL", "ScooterRentSystem.DAL\ScooterRentSystem.DAL.csproj", "{79B04906-38C4-47B4-917E-75A0978A3C72}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ScooterRentSystem.BLL", "ScooterRentSystem.BLL\ScooterRentSystem.BLL.csproj", "{E3BBF615-99F4-46AC-ACFF-407D21CA9EC2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScooterRentSystem.Web", "ScooterRentSystem.Web\ScooterRentSystem.Web.csproj", "{49D94099-F111-4747-899D-F6AEE7B55474}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ScooterRentSystem.Web", "ScooterRentSystem.Web\ScooterRentSystem.Web.csproj", "{49D94099-F111-4747-899D-F6AEE7B55474}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +15,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{40019F48-D272-4999-AF2E-2F9E5A5B91F4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{40019F48-D272-4999-AF2E-2F9E5A5B91F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{40019F48-D272-4999-AF2E-2F9E5A5B91F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{40019F48-D272-4999-AF2E-2F9E5A5B91F4}.Release|Any CPU.Build.0 = Release|Any CPU
 		{79B04906-38C4-47B4-917E-75A0978A3C72}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{79B04906-38C4-47B4-917E-75A0978A3C72}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{79B04906-38C4-47B4-917E-75A0978A3C72}.Release|Any CPU.ActiveCfg = Release|Any CPU

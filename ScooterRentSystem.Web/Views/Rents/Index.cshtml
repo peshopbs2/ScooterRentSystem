@@ -1,0 +1,69 @@
+﻿@model IEnumerable<ScooterRentSystem.Web.Models.ViewModels.Rent.RentViewModel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ScooterModel)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PersonFullName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BeginTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EndTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ScooterModel)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PersonFullName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BeginTime)
+                </td>
+                <td>
+                    @if (item.EndTime.HasValue)
+                    {
+                        @Html.DisplayFor(modelItem => item.EndTime)
+                    } else {
+                        @Html.Raw("Not returned");
+                    }
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+                <td>
+                    @if (item.EndTime.HasValue == false)
+                    {
+                        @Html.ActionLink("End Rent", "EndRent", new {  id=item.Id }) 
+                        @Html.Raw("|");
+                    }
+                    @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

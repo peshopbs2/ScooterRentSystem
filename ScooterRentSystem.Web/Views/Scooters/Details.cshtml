@@ -1,0 +1,110 @@
+﻿@model ScooterRentSystem.Web.Models.ViewModels.Scooter.ScooterDetailsViewModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>ScooterDetailsViewModel</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ModelNumber)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ModelNumber)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.GpsPosition)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.GpsPosition)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Rate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Rate)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.IsTaken)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.IsTaken)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.RentCount)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.RentCount)
+        </dd>
+    </dl>
+    <h1>
+        Rents
+    </h1>
+    @if (Model.Rents.Count > 0)
+    {
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => Model.Rents[0].ScooterModel)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => Model.Rents[0].PersonFullName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Rents[0].BeginTime)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Rents[0].EndTime)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Rents[0].Price)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.Rents)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ScooterModel)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PersonFullName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.BeginTime)
+                        </td>
+                        <td>
+                            @if (item.EndTime.HasValue)
+                            {
+                                @Html.DisplayFor(modelItem => item.EndTime)
+                            }
+                            else
+                            {
+                                @Html.Raw("Not returned");
+                            }
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Price)
+                        </td>
+                        
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        @Html.Raw("There are no rents.");
+    }
+</div>
+<div>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    <a asp-action="Index">Back to List</a>
+</div>

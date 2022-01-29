@@ -10,9 +10,6 @@ namespace ScooterRentSystem.DAL.Entities
     {
         public Rent()
         {
-            EndTime = null;
-            Person = new Person();
-            Scooter = new Scooter();
         }
         public int PersonId { get; set; }
         public virtual Person Person { get; set; }

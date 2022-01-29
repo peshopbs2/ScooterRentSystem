@@ -12,9 +12,12 @@ namespace ScooterRentSystem.BLL.Services
     public class PersonService : IPersonService
     {
         private readonly IRepository<Person> _personRepository;
-        public PersonService(IRepository<Person> personRepository)
+        private readonly IRepository<City> _cityRepository;
+        public PersonService(IRepository<Person> personRepository,
+            IRepository<City> cityRepository)
         {
             _personRepository = personRepository;
+            _cityRepository = cityRepository;
         }
 
         public bool CreatePerson(string firstName, string lastName, string phone, decimal balance, int cityId)
@@ -25,7 +28,7 @@ namespace ScooterRentSystem.BLL.Services
                 LastName = lastName,
                 Phone = phone,
                 Balance = balance,
-                CityId = cityId
+                City = _cityRepository.GetById(cityId)
             };
 
             return _personRepository.Create(person);
@@ -62,7 +65,7 @@ namespace ScooterRentSystem.BLL.Services
             person.LastName = lastName;
             person.Phone = phone;
             person.Balance = balance;
-            person.CityId = cityId;
+            person.City = _cityRepository.GetById(cityId);
 
             return _personRepository.Update(person);
         }
